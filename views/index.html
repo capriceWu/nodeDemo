@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="http://code.jquery.com/jquery-1.4.1.js"></script>
+</head>
+<body>
+<button class="btn">点我发邮件</button>
+<script>
+    $(function(){
+        $('.btn').click(function(){
+            $.ajax({
+                type:'get',
+                url:'http://localhost:3000/sendMail',
+                success:function(data){
+                    alert(data.status);
+                },
+                error:function(){
+                    console.log('error');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

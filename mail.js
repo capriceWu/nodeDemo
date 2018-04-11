@@ -4,9 +4,9 @@
  * 调用方法:sendMail('amor_zhang@qq.com','这是测试邮件', 'Hi Amor,这是一封测试邮件');
  */
 
-var nodemailer = require('../nodemailer');
-var smtpTransport = require('../nodemailer-smtp-transport');
-var config = require('../config.js');
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+var config = require('./config.js');
 smtpTransport = nodemailer.createTransport(smtpTransport({
     service: config.email.service,
     auth: {
@@ -32,8 +32,9 @@ var sendMail = function (recipient, subject, html) {
     }, function (error, response) {
         if (error) {
             console.log(error);
+        }else{
+            console.log('发送成功');
         }
-        console.log('发送成功')
     });
 }
 
